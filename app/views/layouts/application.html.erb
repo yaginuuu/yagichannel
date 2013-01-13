@@ -48,7 +48,7 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><% if current_user %>
-                <%= current_user.name %>さん <%= link_to "ログアウト" ,logout_path %>
+                <p class="text-info"><%= current_user.name %>さん</p> <%= link_to "ログアウト" ,logout_path %>
               <% else %>
                   <%= link_to "Twitterでlogin","/auth/twitter" %>
               <% end %></li>

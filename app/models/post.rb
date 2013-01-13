@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	
+	belongs_to :user
   attr_accessible :content, :title, :picture
   has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 

@@ -142,6 +142,7 @@ DEPENDENCIES
   less-rails
   libv8 (~> 3.11.8.13)
   mysql2
+  omniauth
   omniauth-twitter
   paperclip (~> 3.0)
   rails (= 3.2.11)
