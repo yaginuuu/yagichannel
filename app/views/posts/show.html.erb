@@ -1,0 +1,62 @@
+<h1><%= @post.title %></h1>
+
+<p>
+  <b>写真</b>
+  <%= image_tag @post.picture(:medium), :class => "img-circle" if @post.picture.present? %>
+</p>
+
+<p><%= @post.content %></p>
+
+<h2>コメント</h2>
+<ul>
+	<% if @post.comments.any? %>
+		<% @post.comments.each do |comment| %>
+		<li id="comment_<%= comment.id %>">
+			<%= comment.body %> (by <%= comment.commenter %>)
+			<%= link_to '削除', [comment.post, comment], :confirm => '本当に消しますか？',
+														   :method => :delete%>
+		</li>
+		<% end %>
+	<% else %>
+		<li>まだコメントないです</li>
+	<% end %>
+</ul>
+
+<h2>コメント追加</h2>
+<%= form_for([@post, @comment]) do |f| %>
+
+<% if @comment.errors.any? %>
+	<ul>
+		<% @comment.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<div class="well">
+	<div class="field">
+		<%= f.label :名前 %>
+		<%= f.text_field :commenter %>
+	</div>
+
+	<div class="field">
+		<%= f.label :コメント %>
+		<%= f.text_area :body, :rows => 5 %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit "送信", :class => "btn" %>
+	</div>
+
+	<% end %>
+</div>
+
+
+<script>
+	$(function(){
+		$('a[data-method="delete"]').live('ajax:success', function(e, data, status, xhr) {
+			$('#comment_'+data.comment.id).fadeOut("slow");
+		});
+		
+	});
+</script>

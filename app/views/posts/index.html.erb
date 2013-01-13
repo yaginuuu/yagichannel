@@ -1,0 +1,23 @@
+<div id="notice"><%= notice %></div>
+<h1></h1>
+
+<ul>
+	<% @posts.each do |post| %>
+	<li id="post_<%= post.id %>">
+		<%= link_to post.title, post_path(post) %> (<%= post.comments.size %>) 
+		<%= link_to '編集', edit_post_path(post) %>
+		<%= link_to '削除', post, :confirm => '本当によろしいですか？', :method => :delete %>
+	</li>
+	<% end %>
+</ul>	
+
+<%= link_to '記事を投稿', new_post_path %>
+
+<script>
+	$(function(){
+		setTimeout(function () {
+		  $('#notice').fadeOut("slow")
+		}, 800);
+		
+	});
+</script>

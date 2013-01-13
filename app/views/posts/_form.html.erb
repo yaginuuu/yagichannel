@@ -1,0 +1,29 @@
+<%= form_for(@post, :html => {:multipart => true}) do |f| %>
+<% if @post.errors.any? %>
+<ul>
+	<% @post.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+</ul>
+<% end %>
+
+<div class="field">
+	<%= f.label :タイトル %>
+	<%= f.text_field :title %>
+</div>
+
+<div class="field">
+	<%= f.label :文 %>
+	<%= f.text_area :content, :rows => 5 %>
+</div>
+
+<div class="field">
+	<%= f.label :写真 %><br />
+	<%= f.file_field :picture %>
+</div>
+
+<div class="actions">
+	<%= f.submit "送信", :class => 'btn'%>
+</div>
+
+<% end %>
