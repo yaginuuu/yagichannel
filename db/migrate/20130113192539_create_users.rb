@@ -1,3 +1,4 @@
+
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
@@ -5,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :uid, :null => false
       t.string :screen_name, :null => false, :uniq => true
       t.string :name, :null => false
+      t.string :image
 
       t.timestamps
     end

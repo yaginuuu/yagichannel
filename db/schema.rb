@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20130113192539) do
     t.string   "uid",         :null => false
     t.string   "screen_name", :null => false
     t.string   "name",        :null => false
+    t.string   "image"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

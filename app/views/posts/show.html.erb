@@ -1,11 +1,10 @@
-<h1><%= @post.title %></h1>
+<h1><%= @post.title %> <%= image_tag @post.user.image %> </h1> 
 
 <p>
-  <b>写真</b>
   <%= image_tag @post.picture(:medium), :class => "img-circle" if @post.picture.present? %>
 </p>
 
-<p><%= @post.content %></p>
+<p><%= @post.content %></p>  
 
 <h2>コメント</h2>
 <ul>
@@ -45,7 +44,7 @@
 	</div>
 
 	<div class="actions">
-		<%= f.submit "送信", :class => "btn" %>
+		<%= f.submit "送信", :class => "btn btn-primary" %>
 	</div>
 
 	<% end %>

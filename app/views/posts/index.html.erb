@@ -4,7 +4,7 @@
 <ul>
 	<% @posts.each do |post| %>
 	<li id="post_<%= post.id %>">
-		<%= link_to post.title, post_path(post) %> (<%= post.comments.size %>) 
+		<%= link_to post.title, post_path(post) %> by  <%= post.user.screen_name %> (<%= post.comments.size %>)
 		<%= link_to '編集', edit_post_path(post) %>
 		<%= link_to '削除', post, :confirm => '本当によろしいですか？', :method => :delete %>
 	</li>
