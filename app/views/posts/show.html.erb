@@ -11,17 +11,16 @@
 	<% if @post.comments.any? %>
 		<% @post.comments.each do |comment| %>
 		<li id="comment_<%= comment.id %>">
-			<%= comment.body %> (by <%= comment.commenter %>)
+			<%= comment.body %> (by <%= comment.user.screen_name %>)
 			<%= link_to '削除', [comment.post, comment], :confirm => '本当に消しますか？',
 														   :method => :delete%>
 		</li>
 		<% end %>
 	<% else %>
-		<li>まだコメントないです</li>
+		<li>まだコメントはありません</li>
 	<% end %>
 </ul>
 
-<h2>コメント追加</h2>
 <%= form_for([@post, @comment]) do |f| %>
 
 <% if @comment.errors.any? %>
@@ -33,15 +32,14 @@
 <% end %>
 
 <div class="well">
-	<div class="field">
-		<%= f.label :名前 %>
-		<%= f.text_field :commenter %>
-	</div>
+	
 
 	<div class="field">
 		<%= f.label :コメント %>
 		<%= f.text_area :body, :rows => 5 %>
 	</div>
+
+	<%= f.hidden_field :user_id, :value => current_user.id %>
 
 	<div class="actions">
 		<%= f.submit "送信", :class => "btn btn-primary" %>

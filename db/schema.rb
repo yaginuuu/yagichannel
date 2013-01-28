@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(:version => 20130113192539) do
 
   create_table "comments", :force => true do |t|
-    t.string   "commenter"
     t.string   "body"
     t.integer  "post_id"
     t.integer  "user_id"
