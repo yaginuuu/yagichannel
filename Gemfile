@@ -13,7 +13,10 @@ gem 'omniauth-twitter'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', :group => [:development, :test]
+group :production do
+  gem 'pg'
+end
 
 
 # Gems used only for assets and not required
