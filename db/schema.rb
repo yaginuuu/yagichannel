@@ -34,16 +34,13 @@ ActiveRecord::Schema.define(:version => 20130113192539) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "provider",    :null => false
+    t.string   "provider"
     t.string   "uid",         :null => false
-    t.string   "screen_name", :null => false
+    t.string   "screen_name"
     t.string   "name",        :null => false
     t.string   "image"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-
-  add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid"
-  add_index "users", ["screen_name"], :name => "index_users_on_screen_name"
 
 end
