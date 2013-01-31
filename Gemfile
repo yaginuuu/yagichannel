@@ -5,7 +5,7 @@ gem 'rails', '3.2.11'
 
 gem 'paperclip', '~>3.0'
 gem "less-rails", ">= 2.2.6", :group => :assets
-gem "twitter-bootstrap-rails", ">= 2.2.0", :group => :assets
+gem "twitter-bootstrap-rails", ">= 2.2.0"
 gem 'libv8', '~> 3.11.8.12'
 #gem "therubyracer", :group => :assets, :platform => :ruby, :require => "v8"
 gem "therubyracer", ">= 0.11.2", :group => :assets, :platform => :ruby, :require => "v8"
