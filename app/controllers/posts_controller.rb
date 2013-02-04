@@ -1,14 +1,15 @@
-#coding: utf-8
-
+# -*- encoding: utf-8 -*-
 class PostsController < ApplicationController
   #GET /posts
   #GET /posts.xml
   def index
     @posts = Post.all(:order => "created_at DESC")
     @users = User.all(:order => "created_at DESC")
+    
     respond_to do |format|
-      format.xml {render xml: @posts, @users}
-
+      format.xml {render xml: @posts}
+      format.xml {render xml: @users}
+    end
   end
   
   def show
